@@ -5,6 +5,7 @@ import {
 import Database from "better-sqlite3";
 
 export const auth = betterAuth({
+      baseURL: process.env.BETTER_AUTH_URL,
     database: new Database("./sqlite.db"),
     emailAndPassword: {
         enabled: true,
@@ -14,12 +15,12 @@ export const auth = betterAuth({
     },
     socialProviders: {
         google: {
-            clientId: process.env.GOOGLE_CLIENT_ID!,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET!
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
         },
         github: {
-            clientId: process.env.GITHUB_CLIENT_ID!,
-            clientSecret: process.env.GITHUB_CLIENT_SECRET!
+            clientId: process.env.GITHUB_CLIENT_ID as string,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET as string
         }
     },
 

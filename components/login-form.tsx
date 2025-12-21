@@ -88,6 +88,7 @@ import { Loader2, Key } from "lucide-react";
 import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { authClient } from "@/lib/auth-client"; //import the auth client
 
 export default function login() {
   const [email, setEmail] = useState("");
@@ -232,10 +233,29 @@ export default function login() {
               className={cn("w-full gap-2")}
               disabled={loading}
               onClick={async () => {
-                await signIn.social(
+                // await signIn.social(
+                // {
+                //   provider: "github",
+                //   callbackURL: "/dashboard",
+                // },
+                await authClient.signIn.social(
                   {
                     provider: "github",
+
                     callbackURL: "/dashboard",
+                    /**
+                     * A URL to redirect if an error occurs during the sign in process
+                     */
+                    errorCallbackURL: "/error",
+                    /**
+                     * A URL to redirect if the user is newly registered
+                     */
+                    newUserCallbackURL: "/welcome",
+                    /**
+                     * disable the automatic redirect to the provider.
+                     * @default false
+                     */
+                    // disableRedirect: true,
                   },
                   {
                     onRequest: (ctx) => {

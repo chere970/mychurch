@@ -8,7 +8,13 @@ const nav = () => {
       <nav className="bg-gray-500 items-center text-amber-50 p-5 justify-between flex">
         <div>
           <Link href="/">
-            <Image src="/image.png" alt="Logo" width={150} height={50} />
+            <Image
+              src="/image.png"
+              alt="Logo"
+              width={150}
+              height={50}
+              className="rou"
+            />
           </Link>
         </div>
         <div className="flex justify-between text-xl   font-semibold text-white">

@@ -5,15 +5,15 @@ import Image from "next/image";
 const nav = () => {
   return (
     <>
-      <nav className="bg-gray-500 items-center text-amber-50 p-5 justify-between flex">
+      <nav className="bg-blue-200 items-center  text-black  p-1 mt-3 justify-between flex fixed top-0 w-full opacity-95 z-10">
         <div>
           <Link href="/">
             <Image
               src="/image.png"
               alt="Logo"
               width={150}
-              height={50}
-              className="rou"
+              height={20}
+              className="rounded-lg h-16 w-auto m"
             />
           </Link>
         </div>
